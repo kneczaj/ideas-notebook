@@ -22,7 +22,7 @@ this could be mocked in very generic way, but this is not a common programming p
 What about the controls selectors? At E2E tests there is Page Object Pattern which gathers all important selectors for
 each page. This could be applied at unit tests, couldn't it?
 
-How would we define full test coverage?
+## How would we define full test coverage?
 
 The final part is how frontend testing differs from the rest of programming at area of functionality. Normally unit
 tests cover positive scenarios, this is a must have. Then edge cases come, and this is also very advised. However,
