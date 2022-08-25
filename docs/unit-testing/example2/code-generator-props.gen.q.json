@@ -1,0 +1,68 @@
+{
+    "base": {
+        "results": {
+            "showing A": false,
+            "showing B": false,
+            "showing C": false,
+            "showing button": true,
+            "showing D": true,
+            "calls onClick with `hello`": false,
+            "toggles state": false
+        },
+        "children": {
+            "after clicking the button": {
+                "results": {
+                    "showing A": false,
+                    "showing B": false,
+                    "showing C": false,
+                    "showing button": true,
+                    "showing D": true,
+                    "calls onClick with `hello`": true,
+                    "toggles state": true
+                }
+            },
+            "with A set": {
+                "results": {
+                    "showing A": true,
+                    "showing B": false,
+                    "showing C": false,
+                    "showing button": false,
+                    "showing D": false,
+                    "calls onClick with `hello`": false,
+                    "toggles state": false
+                },
+                "children": {
+                    "after clicking the button": null,
+                    "with B set": {
+                        "results": {
+                            "showing A": true,
+                            "showing B": false,
+                            "showing C": false,
+                            "showing button": false,
+                            "showing D": false,
+                            "calls onClick with `hello`": false,
+                            "toggles state": false
+                        },
+                        "children": {
+                            "after clicking the button": null
+                        }
+                    }
+                }
+            },
+            "with B set": {
+                "results": {
+                    "showing A": false,
+                    "showing B": true,
+                    "showing C": false,
+                    "showing button": false,
+                    "showing D": false,
+                    "calls onClick with `hello`": false,
+                    "toggles state": false
+                },
+                "children": {
+                    "after clicking the button": null
+                }
+            }
+        }
+    }
+}

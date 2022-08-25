@@ -1,0 +1,89 @@
+{
+    "component": "SampleComponent",
+    "steps": {
+        "after clicking the button": {
+            "type": "STATE_CHANGE",
+            "value": "react_1.fireEvent.click(getElement.button());"
+        },
+        "with all false and useState true": {
+            "type": "BASE_PROPS",
+            "value": {
+                "props": [
+                    "...MOCKS.allFalse",
+                    [
+                        "onClick",
+                        "data.spy()"
+                    ]
+                ],
+                "hooks": {
+                    "useState": [
+                        [
+                            0,
+                            "true"
+                        ],
+                        [
+                            1,
+                            "data.spy()"
+                        ]
+                    ]
+                }
+            }
+        },
+        "with useState false": {
+            "type": "HOOK_CHANGE",
+            "value": {
+                "useState": [
+                    [
+                        0,
+                        "false"
+                    ],
+                    [
+                        1,
+                        "data.spy()"
+                    ]
+                ]
+            }
+        }
+    },
+    "tests": {
+        "toggles state to false": "expectResult(hooks.useState[1]).toHaveBeenCalledWith(false);",
+        "toggles state to true": "expectResult(hooks.useState[1]).toHaveBeenCalledWith(true);"
+    },
+    "elements": {
+        "button": "return rendered.queryByRole('button', { name: 'show D' });",
+        "a": "return rendered.queryByText('A');",
+        "b": "return rendered.queryByText('B');",
+        "c": "return rendered.queryByText('C');",
+        "d": "return rendered.queryByText('D');"
+    },
+    "setup": "console.log('hello world');",
+    "imports": {
+        "../client/commands": {
+            "items": [
+                "generate"
+            ]
+        },
+        "./sample-component": {
+            "items": [
+                "Props",
+                "SampleComponent"
+            ]
+        },
+        "@testing-library/react": {
+            "items": [
+                "fireEvent",
+                "RenderResult"
+            ]
+        },
+        "./test": {
+            "items": [
+                "MOCKS"
+            ]
+        },
+        "./hooks/state": {
+            "items": [
+                "useState"
+            ]
+        }
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "component": "SampleComponent",
+    "steps": {
+        "after clicking the button": {
+            "type": "STATE_CHANGE",
+            "value": "react_1.fireEvent.click(getElement.button());"
+        },
+        "with all false": {
+            "type": "BASE_PROPS",
+            "value": {
+                "props": [
+                    "...MOCKS.allFalse",
+                    [
+                        "onClick",
+                        "data.spy()"
+                    ]
+                ],
+                "hooks": {
+                    "useState": [
+                        [
+                            0,
+                            "true"
+                        ],
+                        [
+                            1,
+                            "data.spy()"
+                        ]
+                    ]
+                }
+            }
+        },
+        "with A set": {
+            "type": "PROPS_CHANGE",
+            "value": [
+                [
+                    "a",
+                    "true"
+                ]
+            ]
+        },
+        "with B set": {
+            "type": "PROPS_CHANGE",
+            "value": [
+                [
+                    "b",
+                    "true"
+                ]
+            ]
+        }
+    },
+    "tests": {
+        "showing A": "expectResult(queryElement.a()).toBeInTheDocument();",
+        "showing B": "expectResult(queryElement.b()).toBeInTheDocument();",
+        "showing C": "expectResult(queryElement.c()).toBeInTheDocument();",
+        "showing button": "expectResult(queryElement.button()).toBeInTheDocument();",
+        "showing D": "expectResult(queryElement.d()).toBeInTheDocument();",
+        "calls onClick with `hello`": "expectResult(props.onClick).toHaveBeenCalledWith('hello');",
+        "toggles state": "expectResult(hooks.useState[1]).toHaveBeenCalledWith(false);"
+    },
+    "elements": {
+        "button": "return rendered.queryByRole('button', { name: 'show D' });",
+        "a": "return rendered.queryByText('A');",
+        "b": "return rendered.queryByText('B');",
+        "c": "return rendered.queryByText('C');",
+        "d": "return rendered.queryByText('D');"
+    },
+    "setup": "console.log('hello world');",
+    "imports": {
+        "../client/commands": {
+            "items": [
+                "generate"
+            ]
+        },
+        "./sample-component": {
+            "items": [
+                "Props",
+                "SampleComponent"
+            ]
+        },
+        "@testing-library/react": {
+            "items": [
+                "fireEvent",
+                "RenderResult"
+            ]
+        },
+        "./test": {
+            "items": [
+                "MOCKS"
+            ]
+        },
+        "./hooks/state": {
+            "items": [
+                "useState"
+            ]
+        }
+    }
+}

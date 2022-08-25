@@ -1,0 +1,30 @@
+{
+    "with all false and useState true": {
+        "results": {
+            "toggles state to false": false,
+            "toggles state to true": false
+        },
+        "children": {
+            "after clicking the button": {
+                "results": {
+                    "toggles state to false": true,
+                    "toggles state to true": false
+                }
+            },
+            "with useState false": {
+                "results": {
+                    "toggles state to false": false,
+                    "toggles state to true": false
+                },
+                "children": {
+                    "after clicking the button": {
+                        "results": {
+                            "toggles state to false": false,
+                            "toggles state to true": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

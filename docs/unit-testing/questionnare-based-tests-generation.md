@@ -52,3 +52,5 @@ https://www.npmjs.com/package/react-component-testing-library
 which does not really include the upper thoughts. Since then the software is developed as proprietary in client-server
 architecture. It got a lot of improvements: the described above questionnare based test generation, some auto-mocking
 tools, and test template generation. If any of you wants to try this out let me know. I look for first clients.
+
+More or less how this works at `example2` directory.
